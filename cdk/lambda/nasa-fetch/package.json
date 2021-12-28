@@ -1,0 +1,11 @@
+{
+  "name": "nasa-fetch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "author": "Release",
+  "license": "MIT"
+}

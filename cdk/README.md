@@ -1,12 +1,25 @@
-# Welcome to your CDK JavaScript project!
+# CDK API-Gateway & Lambda Integration with JavaScript
 
-This is a blank project for JavaScript development with CDK.
+## Setup
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app. The build step is not required when using JavaScript.
+Choose one option:
 
-## Useful commands
+1. Install AWS CLI and configure with `aws configure`.
+2. export the variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_DEFAULT_REGION`.
 
- * `npm run test`         perform the jest unit tests
- * `cdk deploy`           deploy this stack to your default AWS account/region
- * `cdk diff`             compare deployed stack with current state
- * `cdk synth`            emits the synthesized CloudFormation template
+Then:
+
+- Install dependencies with yarn.
+- Bundle lambda assets with `yarn bundle`.
+- Deploy stack with `yarn deploy`.
+- Optionally curl the api-gateway endpoint to see the lambda response.
+
+## Available Commands
+
+| Command          | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| `yarn bundle`    | bundle the lambda assets for deployment              |
+| `yarn deploy`    | deploy this stack to your default AWS account/region |
+| `yarn destroy`   | tear down the stack                                  |
+| `yarn cdk diff`  | compare deployed stack with current state            |
+| `yarn cdk synth` | emit the synthesized CloudFormation template         |

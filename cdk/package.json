@@ -5,16 +5,19 @@
     "cdk": "bin/cdk.js"
   },
   "scripts": {
-    "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
     "cdk": "cdk",
-    "test": "jest"
+    "bundle": "cd lambda/nasa-fetch && yarn && zip -r bundle.zip .",
+    "deploy": "cdk bootstrap && cdk deploy --require-approval never --outputs-file ./out/cdk-outputs.json",
+    "destroy": "cdk destroy --force"
   },
   "devDependencies": {
-    "aws-cdk": "2.3.0",
-    "jest": "^26.4.2"
+    "aws-cdk": "2.3.0"
   },
   "dependencies": {
     "aws-cdk-lib": "2.3.0",
-    "constructs": "^10.0.0"
-  }
+    "constructs": "^10.0.0",
+    "dotenv": "^10.0.0"
+  },
+  "author": "Release",
+  "license": "MIT"
 }

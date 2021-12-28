@@ -1,7 +1,16 @@
-const { Stack, Duration } = require('aws-cdk-lib');
-// const sqs = require('aws-cdk-lib/aws-sqs');
+require("dotenv").config();
+const cdk = require("aws-cdk-lib");
+const api = require("aws-cdk-lib/aws-apigateway");
+const lambda = require("aws-cdk-lib/aws-lambda");
 
-class CdkStack extends Stack {
+const path = require("path");
+
+const { NASA_API_KEY } = process.env;
+
+if (NASA_API_KEY === undefined)
+  throw Error("Missing required environment variable: NASA_API_KEY.");
+
+class CdkStack extends cdk.Stack {
   /**
    *
    * @param {Construct} scope
@@ -11,13 +20,32 @@ class CdkStack extends Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const nasaRestApi = new api.RestApi(this, "nasa-rest-api", {
+      defaultCorsPreflightOptions: {
+        allowHeaders: ["Content-Type"],
+        allowMethods: ["GET"],
+        allowOrigins: ["*"],
+      },
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkQueue', {
-    //   visibilityTimeout: Duration.seconds(300)
-    // });
+    const nasaLambda = new lambda.Function(this, "nasa-lambda", {
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: "index.main",
+      code: lambda.Code.fromAsset(
+        path.join(__dirname, "../lambda/nasa-fetch/bundle.zip")
+      ),
+      environment: {
+        NASA_API_KEY: NASA_API_KEY,
+      },
+    });
+
+    nasaRestApi.root.addMethod(
+      "GET",
+      new api.LambdaIntegration(nasaLambda, { proxy: true })
+    );
+
+    new cdk.CfnOutput(this, "apiUrl", { value: nasaRestApi.url });
   }
 }
 
-module.exports = { CdkStack }
+module.exports = { CdkStack };

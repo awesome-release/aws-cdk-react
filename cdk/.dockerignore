@@ -1,14 +1,8 @@
 node_modules
 
-# AWS account credentials
-.env
-
 # Lambda asset bundles
 lambda/**/bundle.zip
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
-
-# CDK outputs
-out
