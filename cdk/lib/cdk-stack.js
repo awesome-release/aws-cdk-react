@@ -5,10 +5,7 @@ const lambda = require("aws-cdk-lib/aws-lambda");
 
 const path = require("path");
 
-const { NASA_API_KEY } = process.env;
-
-if (NASA_API_KEY === undefined)
-  throw Error("Missing required environment variable: NASA_API_KEY.");
+const NASA_API_KEY = process.env.NASA_API_KEY || "DEMO_KEY";
 
 class CdkStack extends cdk.Stack {
   /**

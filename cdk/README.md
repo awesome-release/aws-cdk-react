@@ -1,6 +1,16 @@
 # CDK API-Gateway & Lambda Integration with JavaScript
 
-## Setup
+<p align="center">
+  <img src="../assets/architecture.png" />
+</p>
+
+## Docker Setup
+
+- Create a `.env` file for cdk and the frontend by following the `.env.example` template files.
+
+- Run `docker-compose up -d`
+
+## Local Setup
 
 Choose one option:
 

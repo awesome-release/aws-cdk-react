@@ -14,4 +14,4 @@ RUN yarn bundle
 
 RUN chmod a+x entrypoint.sh
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+CMD [ "./entrypoint.sh" ]
