@@ -4,7 +4,7 @@ services:
     container_name: cdk-stack
     build: ./cdk
     volumes:
-      - static:/opt/app/public
+      - static:/opt/app/public/data
     # command: /bin/sleep infinity
     command: ./entrypoint.sh deploy
     env_file:
@@ -20,6 +20,6 @@ services:
     depends_on:
       - cdk-stack
     volumes:
-      - static:/opt/app/public
+      - static:/opt/app/public/data
 volumes:
   static:

@@ -18,7 +18,7 @@ function App() {
   };
 
   const fetchApiUrl = useCallback(async () => {
-    const data = await fetchPath("stack.json");
+    const data = await fetchPath("data/stack.json");
 
     const envId = process.env.REACT_APP_ENV_ID || "test";
 

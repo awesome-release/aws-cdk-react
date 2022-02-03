@@ -7,7 +7,7 @@
   "scripts": {
     "cdk": "cdk",
     "bundle": "cd lambda/nasa-fetch && yarn && zip -r bundle.zip .",
-    "deploy": "cdk bootstrap && cdk deploy --require-approval never --outputs-file ../public/stack.json",
+    "deploy": "cdk bootstrap && cdk deploy --require-approval never --outputs-file ../public/data/stack.json",
     "destroy": "cdk destroy --force"
   },
   "devDependencies": {
