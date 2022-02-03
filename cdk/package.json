@@ -1,23 +1,24 @@
 {
-  "name": "cdk",
-  "version": "0.1.0",
-  "bin": {
-    "cdk": "bin/cdk.js"
-  },
-  "scripts": {
-    "cdk": "cdk",
-    "bundle": "cd lambda/nasa-fetch && yarn && zip -r bundle.zip .",
-    "deploy": "cdk bootstrap && cdk deploy --require-approval never --outputs-file ../public/data/stack.json",
-    "destroy": "cdk destroy --force"
-  },
-  "devDependencies": {
-    "aws-cdk": "2.3.0"
-  },
-  "dependencies": {
-    "aws-cdk-lib": "2.3.0",
-    "constructs": "^10.0.0",
-    "dotenv": "^10.0.0"
-  },
-  "author": "Release",
-  "license": "MIT"
+	"name": "cdk",
+	"version": "0.1.0",
+	"bin": {
+		"cdk": "bin/cdk.js"
+	},
+	"scripts": {
+		"cdk": "cdk",
+		"bundle": "cd lambda/nasa-fetch && yarn && zip -r bundle.zip .",
+		"setup": "yarn && yarn bundle && cdk bootstrap",
+		"deploy": "yarn setup && cdk deploy --require-approval never --outputs-file ../public/data/stack.json",
+		"destroy": "cdk destroy --force"
+	},
+	"devDependencies": {
+		"aws-cdk": "2.3.0"
+	},
+	"dependencies": {
+		"aws-cdk-lib": "2.3.0",
+		"constructs": "^10.0.0",
+		"dotenv": "^10.0.0"
+	},
+	"author": "Release",
+	"license": "MIT"
 }

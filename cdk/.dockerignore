@@ -1,8 +1,0 @@
-node_modules
-
-# Lambda asset bundles
-lambda/**/bundle.zip
-
-# CDK asset staging directory
-.cdk.staging
-cdk.out

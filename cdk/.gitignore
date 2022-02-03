@@ -9,6 +9,3 @@ lambda/**/bundle.zip
 # CDK asset staging directory
 .cdk.staging
 cdk.out
-
-# CDK outputs
-out

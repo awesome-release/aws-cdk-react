@@ -1,15 +1,5 @@
 version: "3.8"
 services:
-  cdk-stack:
-    container_name: cdk-stack
-    build: ./cdk
-    volumes:
-      - static:/opt/app/public/data
-    # command: /bin/sleep infinity
-    command: ./entrypoint.sh deploy
-    env_file:
-      - ./cdk/.env
-
   frontend:
     container_name: frontend
     build: .
@@ -17,9 +7,3 @@ services:
       - ./src/.env
     ports:
       - 3000:3000
-    depends_on:
-      - cdk-stack
-    volumes:
-      - static:/opt/app/public/data
-volumes:
-  static:

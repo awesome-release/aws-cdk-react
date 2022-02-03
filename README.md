@@ -18,7 +18,7 @@ TBD
 
 3. Visit `http://localhost:3000`
 
-See the [cdk readme](./cdk/README.md) for additional information.
+See the [cdk readme](./cdk/README.md) for additional information about the stack.
 
 # Expected Result
 
